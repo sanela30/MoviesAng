@@ -10,8 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SearchPageComponent implements OnInit {
    
-    private movies: Movie[];
-    private term;
+    public movies: Movie[];
+    public term;
 
   constructor(
     private movieService: MovieService,

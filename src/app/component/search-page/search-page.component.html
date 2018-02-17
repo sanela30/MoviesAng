@@ -1,3 +1,6 @@
-<p>
-  search-page works!
-</p>
+<div class="container">
+    <hr>
+    <p>Rezultat pretrage: {{ term }}</p>
+    <hr>
+    <app-movie-row *ngFor="let movie of movies" [movieRow]="movie"></app-movie-row>
+</div>

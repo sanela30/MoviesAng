@@ -6,7 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './component/movies/movies.component';
-import {SharedModule} from './shared/module/shared.module';
+import { SharedModule } from './shared/module/shared.module';
 
 
 @NgModule({

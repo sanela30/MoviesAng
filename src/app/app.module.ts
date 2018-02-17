@@ -7,6 +7,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './component/movies/movies.component';
 import { SharedModule } from './shared/module/shared.module';
+import { MovieRowComponent } from './shared/movie-row/movie-row.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { SharedModule } from './shared/module/shared.module';
     AppComponent,
     LayoutComponent,
     NavBarComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieRowComponent
   ],
   imports: [
     BrowserModule,

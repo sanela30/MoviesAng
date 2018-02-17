@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { MoviesComponent } from '../component/movies/movies.component';
+import { SearchPageComponent } from '../component/search-page/search-page.component';
 
 const appRoutes: Routes = [
   { path: '', 
@@ -11,6 +12,11 @@ const appRoutes: Routes = [
 {
   path:'movies',
   component: MoviesComponent 
+},
+{
+  path:'search/:term',
+  component:SearchPageComponent
+ 
 }
 ]
 

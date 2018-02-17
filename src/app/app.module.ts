@@ -11,6 +11,7 @@ import { SharedModule } from './shared/module/shared.module';
 import { MovieRowComponent } from './shared/movie-row/movie-row.component';
 import { SearchModuleModule } from './shared/search-module/search-module.module';
 import { FormsModule } from '@angular/forms';
+import { SearchPageComponent } from './component/search-page/search-page.component';
 
 
 
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     NavBarComponent,
     MoviesComponent,
     MovieRowComponent,
+    SearchPageComponent,
    
   ],
   imports: [

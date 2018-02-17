@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -9,6 +10,7 @@ import { MoviesComponent } from './component/movies/movies.component';
 import { SharedModule } from './shared/module/shared.module';
 import { MovieRowComponent } from './shared/movie-row/movie-row.component';
 import { SearchModuleModule } from './shared/search-module/search-module.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -25,7 +27,9 @@ import { SearchModuleModule } from './shared/search-module/search-module.module'
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    SearchModuleModule
+    SearchModuleModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

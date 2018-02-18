@@ -5,18 +5,22 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     FormsModule
   ],
-  declarations: [SearchComponent
+  declarations: [SearchComponent,
+    
    
   ],
   
   exports: [
-    SearchComponent
+    SearchComponent,
+    
+
 ]
 
 })

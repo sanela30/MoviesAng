@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import{movieList} from '../examples';
+
 import { Movie } from '../model/movie';
 import { Observable,Observer } from 'rxjs/Rx';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 
 @Injectable()
@@ -9,39 +10,77 @@ export class MovieService {
 
   private movieList: Movie[];
 
-  constructor() 
-  {
-    this.movieList = movieList.map((movie) => {
-      return new Movie(
-          movie.Id,
-          movie.Name,
-          movie.Director,
-          movie.ImageUrl,
-          movie.Duration,
-          new Date(movie.RealeaseDate),
-          movie.Genres
-      );
-  });
+  constructor(private http: HttpClient) 
+  {}
 
-}
+
    public getMovies()
    {
       return new Observable((o: Observer<any>) =>
           {
+            this.http.get('http://127.0.0.1:8000/api/movies').subscribe((movies: any[]) =>{
+                this.movieList = movies.map((movie) =>
+                {
+                    return new Movie(
+                        movie.id,
+                        movie.name,
+                        movie.director,
+                        movie.image_url,
+                        movie.duration,
+                        movie.release_date,
+                        movie.genres);
+                });    
             o.next(this.movieList);
               return o.complete();
            });
-   }
-
-   searchMoviesByTerm(term): Observable<Movie[]> {
-    const foundMovies = this.movieList.filter((movie: Movie) => {
-        return movie.Name.toLocaleLowerCase().includes(term.toLocaleLowerCase());
-    });
-
-    if (foundMovies.length === 0) {
-        return Observable.throw(term);
+        });
     }
-    return Observable.of(foundMovies);
-}
+
+    public getMovieById(id: number) {
+        return new Observable((o: Observer<any>) => {
+            this.http.get('http://localhost:8000/api/movies/' + id)
+                .subscribe(
+                (movie: any) => {
+                    o.next(new Movie(
+                        movie.id,
+                        movie.name,
+                        movie.director,
+                        movie.image_url,
+                        movie.duration,
+                        movie.release_date,
+                        movie.genres,
+                    ));
+                    return o.complete();
+                }
+                );
+        });
+
+    }
+    
+
+    public searchMoviesByTerm(term) {
+        return new Observable((o: Observer<any>) => {
+            let params = new HttpParams();
+            params = params.append('term', term);
+
+            this.http.get('http://localhost:8000/api/movies')
+            .subscribe((movies: any) => {
+                this.movieList = movies.map((movie) => {
+                    return new Movie(
+                        movie.id,
+                        movie.name,
+                        movie.director,
+                        movie.image_url,
+                        movie.duration,
+                        movie.release_date,
+                        movie.genres);
+                });
+                o.next(this.movieList);
+                return o.complete();
+            });
+        });
+    }
+
+   
 
 }

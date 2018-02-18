@@ -8,9 +8,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MoviesComponent } from './component/movies/movies.component';
 import { SharedModule } from './shared/module/shared.module';
-import { MovieRowComponent } from './shared/movie-row/movie-row.component';
+//import { MovieRowComponent } from './shared/movie-row/movie-row.component';
 import { SearchModuleModule } from './shared/search-module/search-module.module';
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
 import { SearchPageComponent } from './component/search-page/search-page.component';
 
 
@@ -21,7 +21,7 @@ import { SearchPageComponent } from './component/search-page/search-page.compone
     LayoutComponent,
     NavBarComponent,
     MoviesComponent,
-    MovieRowComponent,
+    //MovieRowComponent,
     SearchPageComponent,
    
   ],
@@ -30,7 +30,7 @@ import { SearchPageComponent } from './component/search-page/search-page.compone
     AppRoutingModule,
     SharedModule,
     SearchModuleModule,
-    FormsModule
+    //FormsModule
     
   ],
   providers: [],
